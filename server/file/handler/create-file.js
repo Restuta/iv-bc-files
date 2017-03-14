@@ -20,15 +20,16 @@ const updateFolderSize = require('../command/update-folder-size')
 	second issue is that we are returning object as plain JSON from queries, so update can't benefit
 	from pre-loaded object, but again for now I will just fetch it one more time
 
-	third issue is recursive updates, I didn't cover this case yet, potentially this is a
-	really good candidate to do this transactionally
+	third issue is recursive updates (or bunlk updates), I didn't cover this case yet,
+	potentially this is a really good candidate to do this transactionally
 
 	also on the client we do optimistic updates, it's kind of an overkill for now to also
 	do this for folder sizes, but otherwise we would have to return a sub-tree from the
 	server to update on the client. I'd go down this path since will be doing recursive
 	updates anyway.
 
-	Another option is to just calculate size on the client for folders and don't pre-calculate it.
+	Another option is to just calculate size on the client for folders and don't pre-calculate it
+	on the server
 
 	*/
 
