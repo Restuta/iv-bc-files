@@ -12,6 +12,6 @@ router.post('/',
 	require('./handler/create-file')
 )
 
-router.get('/', require('./handler/find-by-project-id'))
+router.get('/', require('./handler/find-root-files-by-project-id'))
 
 module.exports = router
