@@ -1,9 +1,9 @@
 'use strict'
 
-const findById = require('../query/find-by-project-id')
+const findByProjectId = require('../query/find-by-project-id')
 
 module.exports = (req, res, next) => {
-	findById(req.query.projectId)
+	findByProjectId(req.query.projectId)
 		.then(files => res.json(files))
 		.catch(next)
 }
