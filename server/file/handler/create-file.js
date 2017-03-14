@@ -5,7 +5,8 @@ const findById = require('../query/find-by-id')
 const createMetadata = require('./create-file-metadata')
 const updateFolderSize = require('../command/update-folder-size')
 
-/* 	Keep fonder size in sync with file-sizes
+/*
+	Keep folder size in sync with file-sizes
 	to do that whenever file is uploaded we would need to append it's size to a folder size
 	so logic is the following:
 	if parent is a folder, get file size and update parent as well
@@ -24,7 +25,8 @@ const updateFolderSize = require('../command/update-folder-size')
 
 	also on the client we do optimistic updates, it's kind of an overkill for now to also
 	do this for folder sizes, but otherwise we would have to return a sub-tree from the
-	server to update on the client. I'd go down this path since will be doing recursive updates anyway.
+	server to update on the client. I'd go down this path since will be doing recursive
+	updates anyway.
 
 	Another option is to just calculate size on the client for folders and don't pre-calculate it.
 
