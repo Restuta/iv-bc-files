@@ -12,6 +12,6 @@ router.post('/',
 	require('./handler/create')
 )
 
-// router.get('/', require('./handler/create'))
+router.get('/', require('./handler/find-by-project-id'))
 
 module.exports = router
