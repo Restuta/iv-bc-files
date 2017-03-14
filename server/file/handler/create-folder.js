@@ -3,20 +3,22 @@
 const createOne = require('../command/create-one')
 const findById = require('../query/find-by-id')
 
-// todo restuta: add error handling
-const createFile = req => {
+const createFolder = req => {
+	console.info(req.body.name)
+	throw new Error()
+
 	const fileMetadata = {
 		parentId: req.query.parentId || 'root',
 		projectId: req.query.projectId,
-		name: req.file.originalname,
-		size: req.file.size, // todo: calculate size
-		type: 'FILE',
+		name: req.body.name,
+		size: 0, // initially all created folders are empty
+		type: 'FOLDER',
 	}
 	return createOne(fileMetadata)
 }
 
 module.exports = (req, res, next) => {
-	createFile(req)
+	createFolder(req)
 		.then(createdFile => findById(createdFile._id))
 		.then(file => res.json(file))
 		.catch(next)

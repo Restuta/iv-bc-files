@@ -29,6 +29,8 @@ app.use(express.static('public'))
 // Routes for primary API
 app.use('/api/projects', require('./project/router'))
 app.use('/api/files', require('./file/file-router'))
+// we treat folders as files, hence code is inside "file" domain
+app.use('/api/folders', require('./file/folder-router'))
 
 mongoose
 	.connect('mongodb://localhost:27019/backend-challenge')

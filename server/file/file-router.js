@@ -9,7 +9,7 @@ router.post('/',
 	// chaining two middlewares to update mongo after S3 is done
 	// note: multer adds "file" property to "req" object so next middlware can use it
 	uploader.single('file'),
-	require('./handler/create')
+	require('./handler/create-file')
 )
 
 router.get('/', require('./handler/find-by-project-id'))
