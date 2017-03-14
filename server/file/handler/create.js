@@ -18,6 +18,6 @@ const createFile = req => {
 module.exports = (req, res, next) => {
 	createFile(req)
 		.then(createdFile => findById(createdFile._id))
-		.then(project => res.json(project))
+		.then(file => res.json(file))
 		.catch(next)
 }
