@@ -66,3 +66,6 @@ npm-debug.log
 # Docker Data #
 ################
 /data
+
+# local files
+start.sh
