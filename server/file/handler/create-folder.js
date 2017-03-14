@@ -2,18 +2,15 @@
 
 const createOne = require('../command/create-one')
 const findById = require('../query/find-by-id')
+const createMetadata = require('./create-file-metadata')
 
 const createFolder = req => {
-	console.info(req.body.name)
-	throw new Error()
-
-	const fileMetadata = {
-		parentId: req.query.parentId || 'root',
+	const fileMetadata = createMetadata({
+		parentId: req.query.parentId,
 		projectId: req.query.projectId,
 		name: req.body.name,
-		size: 0, // initially all created folders are empty
 		type: 'FOLDER',
-	}
+	})
 	return createOne(fileMetadata)
 }
 
