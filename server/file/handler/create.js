@@ -5,9 +5,6 @@ const findById = require('../query/find-by-id')
 
 // todo restuta: add error handling
 const createFile = req => {
-	// console.log('creating a File...')
-	// console.log(req.query)
-	// console.log(req.file)
 	const fileMetadata = {
 		parentId: req.query.parentId || 'root',
 		projectId: req.query.projectId,
