@@ -23,7 +23,7 @@ const schema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
-	// for simplicity we treat folders as files also, hence type could be file|folder
+	// for simplicity we treat folders as files, hence type could be file|folder
 	type: {
 		type: String,
 		required: true,

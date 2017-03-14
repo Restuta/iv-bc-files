@@ -18,6 +18,12 @@ const uploader = multer({
 
 // This should upload the file, however, you'll still need to add another function after this
 // uploader middleware to actually save a record of this file in Mongo
-router.post('/', uploader.single('file'))
+router.post('/',
+	// chaining two middlewares to update mongo after S3 is done
+	uploader.single('file'),
+	require('./handler/create')
+)
+
+// router.get('/', require('./handler/create'))
 
 module.exports = router
